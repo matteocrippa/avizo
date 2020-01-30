@@ -10,7 +10,7 @@ off=$(amixer get Master | grep -o "off" | head -n 1)
 
 if [[ "$1" == "mute" || "$off" == *"off"* ]]
 then
-    echo `amixer set Master toggle` > /dev/null
+    echo `pactl set-sink-mute 0 toggle` > /dev/null
 fi
 
 if [[ "$1" == "lower" ]]
